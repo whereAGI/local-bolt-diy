@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  dev-environment:
+    build: .
+    container_name: local-bolt-diy
+    environment:
+      - PASSWORD=${CODE_SERVER_PASSWORD}
+    ports:
+      - "8080:8080"  # Code-server
+      - "11434:11434"  # Ollama
+      - "3000:3000"  # bolt.diy
+    volumes:
+      - ./workspace:/home/coder/workspace
+      - ollama-models:/root/.ollama  # Persist Ollama models
+    restart: unless-stopped
+
+volumes:
+  ollama-models:
