@@ -87,8 +87,8 @@ until curl -s http://localhost:11434/api/tags >/dev/null; do\n\
 done\n\
 \n\
 # Pull the default model\n\
-echo "Pulling Mistral model..."\n\
-sudo ollama pull mistral\n\
+echo "Pulling deepseek-r1:1.5b model..."\n\
+sudo ollama pull deepseek-r1:1.5b\n\
 \n\
 # Start code-server with SSL\n\
 code-server --bind-addr 0.0.0.0:8080 \\\n\
